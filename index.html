@@ -38,7 +38,7 @@
   .top .by { font: 700 12.5px/1.45 'Plus Jakarta Sans', sans-serif; letter-spacing: .13em; text-transform: uppercase; color: var(--forest-ink); text-align: right; }
 
   /* hero */
-  .hero { padding-block: clamp(20px, 5vw, 56px) clamp(56px, 8vw, 96px); }
+  .hero { padding-block: clamp(48px, 8vw, 104px) clamp(56px, 8vw, 96px); }
   .hero h1 { color: var(--forest-ink); font-size: clamp(46px, 8.6vw, 108px); line-height: .97; letter-spacing: -.022em; margin: 0 0 24px; }
   .lead { font-size: clamp(18px, 2vw, 21px); line-height: 1.55; max-width: 58ch; margin: 0; }
 
@@ -136,11 +136,6 @@
 </head>
 <body>
 
-<header class="wrap top">
-  <img src="media/wf-logo-forest.png" alt="Website Formula">
-  <div class="by">Made with Jack Roberts'<br>RISE video and prompts</div>
-</header>
-
 <main>
   <section class="wrap hero">
     <h1>What I built with RISE</h1>
@@ -222,7 +217,8 @@
 
         <article class="tile wide">
           <div class="frame"><video id="demo" data-src="media/demo-hale.mp4" poster="media/demo-hale.jpg" muted playsinline preload="none" data-once aria-label="Hale Stoneworks product demo"></video>
-            <button class="play small" type="button" data-play="demo" aria-label="Play the product demo again" hidden><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5z" fill="currentColor"/></svg><span>Play again</span></button></div>
+            <button class="play small" type="button" data-play="demo" aria-label="Play the product demo with sound" hidden><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5z" fill="currentColor"/></svg><span>Play again with sound</span></button>
+            <button class="sound" type="button" data-for="demo" aria-pressed="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5 6 9H3v6h3l5 4z"/><path d="M15.5 8.5a5 5 0 0 1 0 7M18.5 5.5a9 9 0 0 1 0 13"/></svg><span>Watch with sound</span></button></div>
           <div class="meta"><div class="tag">Bonus · Product demo</div><h3>A product demo for a landscaper</h3><p>A dated website turns into a new one, piece by piece, and then the quote requests start coming in.</p></div>
         </article>
       </div>
@@ -278,23 +274,23 @@
   // The commercial and the product demo are not loops: a play button starts them, and they stop at the end.
   document.querySelectorAll('.play').forEach(btn => {
     const v = document.getElementById(btn.dataset.play);
-    btn.addEventListener('click', () => { load(v); v.muted = v.id === 'demo'; v.currentTime = 0; v.controls = v.id === 'spot'; btn.hidden = true; play(v); });
+    btn.addEventListener('click', () => { load(v); v.muted = false; v.currentTime = 0; v.controls = v.id === 'spot'; btn.hidden = true; play(v); });
     v.addEventListener('ended', () => { btn.hidden = false; if (v.id === 'spot') { btn.querySelector('span').textContent = 'Play again'; v.controls = false; } });
   });
 
   // A sound button restarts its video from the top with sound; tap again to go back to the silent loop.
   document.querySelectorAll('.sound').forEach(btn => {
     const v = document.getElementById(btn.dataset.for), label = btn.querySelector('span');
-    const quiet = () => { v.muted = true; v.loop = true; label.textContent = 'Watch with sound'; btn.setAttribute('aria-pressed', 'false'); };
+    const quiet = () => { v.muted = true; v.loop = !v.hasAttribute('data-once'); label.textContent = 'Watch with sound'; btn.setAttribute('aria-pressed', 'false'); };
     btn.addEventListener('click', () => {
       load(v);
       if (v.muted) {
-        document.querySelectorAll('video').forEach(o => { if (o !== v && !o.muted) { o.muted = true; o.loop = true; } });
+        document.querySelectorAll('video').forEach(o => { if (o !== v && !o.muted) { o.muted = true; if (o.id !== 'spot') o.loop = !o.hasAttribute('data-once'); } });
         document.querySelectorAll('.sound').forEach(b => { if (b !== btn) { b.querySelector('span').textContent = 'Watch with sound'; b.setAttribute('aria-pressed', 'false'); } });
         v.muted = false; v.loop = false; v.currentTime = 0; play(v); label.textContent = 'Sound off'; btn.setAttribute('aria-pressed', 'true');
       } else { quiet(); }
     });
-    v.addEventListener('ended', () => { quiet(); play(v); });
+    v.addEventListener('ended', () => { quiet(); if (!v.hasAttribute('data-once')) play(v); });
   });
 })();
 </script>
