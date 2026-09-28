@@ -142,10 +142,8 @@
     <p class="lead">A 30-second commercial for my business, every RISE level, all six visual styles and a wall of 100 brands in motion. All made with Jack Roberts' RISE video and the prompts he shared.</p>
 
     <figure class="spot">
-      <video id="spot" src="media/commercial.mp4" poster="media/commercial.jpg" playsinline preload="metadata" aria-label="30-second Website Formula commercial" data-manual></video>
-      <button class="play" type="button" data-play="spot" aria-label="Play the commercial with sound">
-        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5z" fill="currentColor"/></svg><span>Play with sound</span>
-      </button>
+      <video id="spot" src="media/commercial.mp4" poster="media/commercial.jpg" muted loop playsinline preload="metadata" aria-label="30-second Website Formula commercial"></video>
+      <button class="sound" type="button" data-for="spot" aria-pressed="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5 6 9H3v6h3l5 4z"/><path d="M15.5 8.5a5 5 0 0 1 0 7M18.5 5.5a9 9 0 0 1 0 13"/></svg><span>Watch with sound</span></button>
     </figure>
     <div class="caption">
       <b>A 30-second commercial for Website Formula</b>
@@ -285,7 +283,7 @@
     btn.addEventListener('click', () => {
       load(v);
       if (v.muted) {
-        document.querySelectorAll('video').forEach(o => { if (o !== v && !o.muted) { o.muted = true; if (o.id !== 'spot') o.loop = !o.hasAttribute('data-once'); } });
+        document.querySelectorAll('video').forEach(o => { if (o !== v && !o.muted) { o.muted = true; o.loop = !o.hasAttribute('data-once'); } });
         document.querySelectorAll('.sound').forEach(b => { if (b !== btn) { b.querySelector('span').textContent = 'Watch with sound'; b.setAttribute('aria-pressed', 'false'); } });
         v.muted = false; v.loop = false; v.currentTime = 0; play(v); label.textContent = 'Sound off'; btn.setAttribute('aria-pressed', 'true');
       } else { quiet(); }
