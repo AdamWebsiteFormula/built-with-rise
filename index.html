@@ -1,0 +1,296 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>One Video. All of This. | Built with RISE</title>
+<meta name="description" content="A TV-style commercial, every RISE level, six visual styles and a wall of 100 brands, all made with Jack Roberts' RISE method. By Adam Willingham, Website Formula.">
+<meta property="og:title" content="One video. All of this.">
+<meta property="og:description" content="Everything I made with Jack Roberts' RISE method: a commercial, every RISE level, six styles and 100 brands in motion.">
+<meta property="og:image" content="media/og.jpg">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="media/icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap">
+<style>
+  :root {
+    --cream: #F7F2E8; --forest: #001E1B; --forest-ink: #0E2B27; --gold: #CBA865; --gold-bright: #D3AE69; --label: #7F6534;
+    --text: #3F4643; --muted: #5E6461; --on-dark: #F7F2E8; --on-dark-soft: rgba(247, 242, 232, 0.76);
+    --hair: rgba(154, 125, 68, 0.28); --hair-dark: rgba(203, 168, 101, 0.22);
+    color-scheme: light;
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body { margin: 0; background: var(--cream); color: var(--text); font: 400 17px/1.65 'Plus Jakarta Sans', 'Helvetica Neue', Arial, sans-serif; }
+  h1, h2, h3 { font-family: 'Outfit', 'Helvetica Neue', Arial, sans-serif; font-weight: 600; margin: 0; text-wrap: balance; }
+  p { text-wrap: pretty; }
+  a { color: inherit; }
+  .wrap { max-width: 1200px; margin: 0 auto; padding-inline: 16px; }
+  @media (min-width: 700px) { .wrap { padding-inline: 32px; } }
+  .nb { white-space: nowrap; }
+
+  /* header */
+  .top { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-block: 24px; }
+  .top img { width: 92px; height: auto; display: block; }
+  @media (min-width: 700px) { .top img { width: 130px; } }
+  .top .by { font: 700 12.5px/1.45 'Plus Jakarta Sans', sans-serif; letter-spacing: .13em; text-transform: uppercase; color: var(--forest-ink); text-align: right; }
+
+  /* hero */
+  .hero { padding-block: clamp(20px, 5vw, 56px) clamp(56px, 8vw, 96px); }
+  .hero h1 { color: var(--forest-ink); font-size: clamp(46px, 8.6vw, 108px); line-height: .97; letter-spacing: -.022em; margin: 0 0 24px; }
+  .lead { font-size: clamp(18px, 2vw, 21px); line-height: 1.55; max-width: 58ch; margin: 0; }
+
+  /* the commercial */
+  .spot { position: relative; margin: clamp(32px, 5vw, 52px) 0 0; border-radius: 18px; overflow: hidden; background: var(--forest);
+    box-shadow: 0 34px 90px -34px rgba(0, 30, 27, .6), 0 0 0 1px var(--hair); }
+  .spot video { display: block; width: 100%; aspect-ratio: 16 / 9; object-fit: cover; background: var(--forest); }
+  .caption { display: grid; gap: 6px; margin-top: 18px; }
+  @media (min-width: 860px) { .caption { grid-template-columns: auto 1fr; gap: 28px; align-items: baseline; } }
+  .caption b { font: 600 19px/1.3 'Outfit', sans-serif; color: var(--forest-ink); }
+  .caption > span { color: var(--muted); font-size: 16px; }
+
+  /* sound pill (commercial and reel) */
+  .sound { position: absolute; left: 18px; bottom: 18px; z-index: 2; display: inline-flex; align-items: center; gap: 10px; padding: 12px 18px 12px 14px; border-radius: 999px; border: 0; cursor: pointer;
+    font: 700 14.5px/1 'Plus Jakarta Sans', sans-serif; color: var(--forest); background: linear-gradient(115deg, #9A7D44, #D3AE69); box-shadow: 0 10px 30px -10px rgba(0,0,0,.6); }
+  .sound svg { width: 18px; height: 18px; }
+  .sound:focus-visible { outline: 2px solid #fff; outline-offset: 3px; }
+  @media (max-width: 600px) { .sound { left: 10px; bottom: 10px; padding: 8px 12px 8px 10px; font-size: 12.5px; gap: 7px; } .sound svg { width: 15px; height: 15px; } }
+
+  /* levels (dark) */
+  .dark { background: var(--forest); color: var(--on-dark-soft); padding-block: clamp(72px, 10vw, 128px); position: relative; overflow: hidden; }
+  .dark::before { content: ""; position: absolute; inset: 0; pointer-events: none; opacity: .55;
+    background: radial-gradient(1200px 600px at 85% -10%, rgba(203,168,101,.10), transparent 60%), radial-gradient(900px 500px at -10% 30%, rgba(0,58,55,.9), transparent 60%); }
+  .dark > .wrap { position: relative; }
+  .head { display: grid; gap: 16px; margin-bottom: clamp(44px, 6vw, 72px); max-width: 760px; }
+  .head h2 { font-size: clamp(36px, 5.4vw, 62px); line-height: 1.02; letter-spacing: -.016em; color: var(--forest-ink); }
+  .dark .head h2 { color: var(--on-dark); }
+  .head p { margin: 0; font-size: 18px; max-width: 56ch; }
+
+  .grid { display: grid; grid-template-columns: minmax(0, 1fr); row-gap: 64px; column-gap: 36px; }
+  @media (min-width: 860px) { .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); row-gap: 120px; } .wide { grid-column: 1 / -1; } }
+  .tile { min-width: 0; }
+  .frame { position: relative; border-radius: 14px; overflow: hidden; background: #03211E; box-shadow: 0 26px 64px -30px rgba(0,0,0,.85), 0 0 0 1px var(--hair-dark); }
+  .frame video { display: block; width: 100%; height: auto; aspect-ratio: 16 / 9; object-fit: cover; }
+  .meta { margin-top: 12px; }
+  @media (min-width: 860px) { .meta { margin-top: 16px; } }
+  .tag { font: 700 11.5px/1 'Plus Jakarta Sans', sans-serif; letter-spacing: .16em; text-transform: uppercase; color: var(--gold-bright); }
+  .meta h3, .feature h3 { font-size: 22px; line-height: 1.18; color: var(--on-dark); margin: 10px 0 8px; }
+  @media (min-width: 860px) { .meta h3, .feature h3 { font-size: 28px; } }
+  .meta p, .feature p { margin: 0; font-size: 16px; line-height: 1.58; max-width: 60ch; }
+
+  /* Level 3: the reel, upright, left on the grid line */
+  .feature { display: grid; gap: 24px 56px; align-items: center; grid-template-columns: minmax(0, 1fr); }
+  @media (min-width: 860px) { .feature { grid-template-columns: auto minmax(0, 1fr); } }
+  .reel { position: relative; width: min(100%, 300px); margin-inline: auto; border-radius: 16px; overflow: hidden; background: #03211E; box-shadow: 0 26px 64px -30px rgba(0,0,0,.85), 0 0 0 1px var(--hair-dark); }
+  @media (min-width: 860px) { .reel { width: 340px; margin: 0; } }
+  .reel video { display: block; width: 100%; aspect-ratio: 9 / 16; object-fit: cover; }
+
+  /* Level 4: one scene in three sizes, straight on the page */
+  .sizes { display: grid; gap: 36px 18px; grid-template-columns: .5625fr 1fr; grid-template-areas: "wide wide" "tall square"; align-items: end; }
+  @media (min-width: 860px) { .sizes { grid-template-columns: 1.7778fr .5625fr 1fr; grid-template-areas: "wide tall square"; gap: 28px; } }
+  .sizes figure { margin: 0; min-width: 0; }
+  .sizes .r169 { grid-area: wide; } .sizes .r916 { grid-area: tall; } .sizes .r11 { grid-area: square; }
+  .sizes video { display: block; width: 100%; border-radius: 10px; box-shadow: 0 20px 44px -22px rgba(0,0,0,.85), 0 0 0 1px var(--hair-dark); background: #03211E; }
+  .sizes .r169 video { aspect-ratio: 16 / 9; } .sizes .r916 video { aspect-ratio: 9 / 16; } .sizes .r11 video { aspect-ratio: 1; }
+  .sizes figcaption { margin-top: 10px; font: 700 12px/1 'Plus Jakarta Sans', sans-serif; letter-spacing: .14em; color: var(--on-dark-soft); text-align: center; }
+
+  /* Level 7: the wall, centred and big enough to read */
+  .wall { text-align: center; }
+  .wall .copy { max-width: 640px; margin: 0 auto 40px; }
+  .wall h3 { font-size: clamp(30px, 4vw, 46px); line-height: 1.08; color: var(--on-dark); margin: 14px 0 14px; }
+  .wall p { margin: 0 auto 10px; font-size: 17px; }
+  .wall .fine { font-size: 14px; color: rgba(247,242,232,.72); }
+  .wall .frame { width: min(100%, 760px); margin: 0 auto; }
+  .wall .frame video { aspect-ratio: 1; }
+
+  /* styles (cream) */
+  .styles { padding-block: clamp(72px, 10vw, 128px); }
+  .styles .head h2 { color: var(--forest-ink); }
+  .sgrid { display: grid; grid-template-columns: minmax(0, 1fr); row-gap: 48px; column-gap: 28px; }
+  @media (min-width: 640px) { .sgrid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+  @media (min-width: 1040px) { .sgrid { grid-template-columns: repeat(3, minmax(0, 1fr)); row-gap: 64px; } }
+  .styles .frame { background: #E6DCC8; box-shadow: 0 22px 50px -30px rgba(0,30,27,.45), 0 0 0 1px var(--hair); }
+  .styles .tag { color: var(--label); }
+  .styles .meta h3 { color: var(--forest-ink); font-size: 21px; }
+  .styles .meta p { color: var(--muted); font-size: 15.5px; }
+
+  /* footer */
+  footer { background: var(--forest); color: var(--on-dark-soft); padding-block: 64px 72px; }
+  footer .wrap { display: grid; gap: 28px; }
+  @media (min-width: 860px) { footer .wrap { grid-template-columns: auto 1fr; align-items: center; gap: 56px; } }
+  footer img { width: 132px; height: auto; display: block; }
+  footer .tagline { font: 600 clamp(22px, 2.6vw, 30px)/1.2 'Outfit', sans-serif; color: var(--on-dark); margin: 0 0 12px; }
+  footer p { margin: 4px 0; font-size: 15px; }
+  footer a { color: var(--gold-bright); text-decoration: none; }
+  footer a:hover { text-decoration: underline; }
+</style>
+</head>
+<body>
+
+<header class="wrap top">
+  <img src="media/wf-logo-forest.png" alt="Website Formula">
+  <div class="by">Made with Jack Roberts'<br>RISE method</div>
+</header>
+
+<main>
+  <section class="wrap hero">
+    <h1>One video.<br>All of this.</h1>
+    <p class="lead">I watched Jack's RISE video on motion graphics and pushed it as far as I could: a TV-style commercial for my business, every RISE level, all six visual styles and a wall of 100 brands. Everything plays right here.</p>
+
+    <figure class="spot">
+      <video id="spot" src="media/commercial.mp4" poster="media/commercial.jpg" muted loop playsinline preload="metadata" aria-label="30-second Website Formula commercial"></video>
+      <button class="sound" type="button" data-for="spot" aria-pressed="false">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5 6 9H3v6h3l5 4z"/><path d="M15.5 8.5a5 5 0 0 1 0 7M18.5 5.5a9 9 0 0 1 0 13"/></svg>
+        <span>Watch with sound</span>
+      </button>
+    </figure>
+    <div class="caption">
+      <b>A 30-second commercial for Website Formula</b>
+      <span>My real build day: Trello all day, changes from <span class="nb">3 to 5</span>, then a video message from me when the site goes live.</span>
+    </div>
+  </section>
+
+  <section class="dark">
+    <div class="wrap">
+      <div class="head">
+        <h2>Seven levels, run for real.</h2>
+        <p>Made in Claude Design and Claude Code with my own content, then recorded frame by frame so each one loops.</p>
+      </div>
+
+      <div class="grid">
+        <article class="tile">
+          <div class="frame"><video data-src="media/l1-slide.mp4" poster="media/l1-slide.jpg" muted loop playsinline preload="none" aria-label="Animated How It Works slide"></video></div>
+          <div class="meta"><div class="tag">Level 1 · Slide</div><h3>A slide that moves on its own</h3><p>My How It Works slide, redrawn in code. A beam of light runs along the gold line and lights each step in turn.</p></div>
+        </article>
+        <article class="tile">
+          <div class="frame"><video data-src="media/l2-hero.mp4" poster="media/l2-hero.jpg" muted loop playsinline preload="none" aria-label="Hale Stoneworks website hero with a real fire video"></video></div>
+          <div class="meta"><div class="tag">Level 2 · Website hero</div><h3>A website hero that comes alive</h3><p>The Hale Stoneworks homepage, with a real fire video from Higgsfield burning behind the headline.</p></div>
+        </article>
+
+        <article class="tile wide">
+          <div class="feature">
+            <div class="reel">
+              <video id="reel" data-src="media/l3-reel.mp4" poster="media/l3-reel.jpg" muted loop playsinline preload="none" aria-label="Reel graphic with word-timed captions"></video>
+              <button class="sound" type="button" data-for="reel" aria-pressed="false">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5 6 9H3v6h3l5 4z"/><path d="M15.5 8.5a5 5 0 0 1 0 7M18.5 5.5a9 9 0 0 1 0 13"/></svg>
+                <span>Watch with sound</span>
+              </button>
+            </div>
+            <div>
+              <div class="tag">Level 3 · Reel graphic</div>
+              <h3>A reel graphic, timed to my words</h3>
+              <p>An 11-second clip of me talking. Every caption and graphic lands on the word I'm saying. Turn the sound on to hear it line up.</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="tile wide">
+          <div class="sizes">
+            <figure class="r169"><video data-src="media/l4-16x9.mp4" poster="media/l4-16x9.jpg" muted loop playsinline preload="none" aria-label="Coffee B-roll, 16:9"></video><figcaption>16:9</figcaption></figure>
+            <figure class="r916"><video data-src="media/l4-9x16.mp4" poster="media/l4-9x16.jpg" muted loop playsinline preload="none" aria-label="Coffee B-roll, 9:16"></video><figcaption>9:16</figcaption></figure>
+            <figure class="r11"><video data-src="media/l4-1x1.mp4" poster="media/l4-1x1.jpg" muted loop playsinline preload="none" aria-label="Coffee B-roll, 1:1"></video><figcaption>1:1</figcaption></figure>
+          </div>
+          <div class="meta"><div class="tag">Level 4 · B-roll</div><h3>One B-roll clip in every size</h3><p>Coffee steam draws a video player, a photo feed and a post. One scene, laid out for YouTube, Reels and the feed.</p></div>
+        </article>
+
+        <article class="tile">
+          <div class="frame"><video data-src="media/l5-logo.mp4" poster="media/l5-logo.jpg" muted loop playsinline preload="none" aria-label="Website Formula logo reveal"></video></div>
+          <div class="meta"><div class="tag">Level 5 · Logo</div><h3>My logo, revealed</h3><p>A gold thread draws the real Website Formula logo, then the wordmark wipes in with a glint.</p></div>
+        </article>
+        <article class="tile">
+          <div class="frame"><video data-src="media/l6-style.mp4" poster="media/l6-style.jpg" muted loop playsinline preload="none" aria-label="How Firecrawl reads a website, in a Bauhaus style"></video></div>
+          <div class="meta"><div class="tag">Level 6 · Borrowed style</div><h3>A look borrowed from one image</h3><p>How Firecrawl reads a website, explained in the style of a Bauhaus poster.</p></div>
+        </article>
+
+        <article class="tile wide wall">
+          <div class="copy">
+            <div class="tag">Level 7 · 100 brands</div>
+            <h3>A hundred websites in. A hundred films out.</h3>
+            <p>Firecrawl pulled each brand's logo, colors and fonts from its website. One template turned each brand into its own short film, and all 100 play together on one wall.</p>
+            <p class="fine">Brand names and logos belong to their owners.</p>
+          </div>
+          <div class="frame"><video data-src="media/l7-wall.mp4" poster="media/l7-wall.jpg" muted loop playsinline preload="none" aria-label="A wall of 100 brand films"></video></div>
+        </article>
+
+        <article class="tile wide">
+          <div class="frame"><video data-src="media/demo-hale.mp4" poster="media/demo-hale.jpg" muted loop playsinline preload="none" aria-label="Hale Stoneworks product demo"></video></div>
+          <div class="meta"><div class="tag">Bonus · Product demo</div><h3>A product demo for a landscaper</h3><p>A dated website turns into a new one, piece by piece, and then the quote requests start coming in.</p></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="styles">
+    <div class="wrap">
+      <div class="head">
+        <h2>Same method,<br>six different looks.</h2>
+        <p>Jack's six house styles, filled in with my own words and numbers.</p>
+      </div>
+      <div class="sgrid">
+        <article class="tile"><div class="frame"><video data-src="media/s01.mp4" poster="media/s01.jpg" muted loop playsinline preload="none" aria-label="Field Notes chart"></video></div>
+          <div class="meta"><div class="tag">Style 01 · Field Notes</div><h3>A chart that builds itself</h3><p>Each bar rises as a warm beam passes over it.</p></div></article>
+        <article class="tile"><div class="frame"><video data-src="media/s02.mp4" poster="media/s02.jpg" muted loop playsinline preload="none" aria-label="Charcoal Caliper chalkboard"></video></div>
+          <div class="meta"><div class="tag">Style 02 · Charcoal Caliper</div><h3>One measured fact</h3><p>A chalk chart and a caliper: 8 hours, my build day.</p></div></article>
+        <article class="tile"><div class="frame"><video data-src="media/s03.mp4" poster="media/s03.jpg" muted loop playsinline preload="none" aria-label="Swiss poster kinetic type"></video></div>
+          <div class="meta"><div class="tag">Style 03 · Swiss Poster</div><h3>A poster that breathes</h3><p>A weight wave rolls through the word Formula.</p></div></article>
+        <article class="tile"><div class="frame"><video data-src="media/s04.mp4" poster="media/s04.jpg" muted loop playsinline preload="none" aria-label="Sumi ink ensō"></video></div>
+          <div class="meta"><div class="tag">Style 04 · Sumi Ink</div><h3>One brush stroke</h3><p>An ensō in dry brush, bleeding ink and a red seal.</p></div></article>
+        <article class="tile"><div class="frame"><video data-src="media/s05.mp4" poster="media/s05.jpg" muted loop playsinline preload="none" aria-label="Paper-cut night sea"></video></div>
+          <div class="meta"><div class="tag">Style 05 · Paper-cut</div><h3>A night at sea, in paper</h3><p>Cut-paper waves roll under a paper moon.</p></div></article>
+        <article class="tile"><div class="frame"><video data-src="media/s06.mp4" poster="media/s06.jpg" muted loop playsinline preload="none" aria-label="Risograph LAUNCH poster"></video></div>
+          <div class="meta"><div class="tag">Style 06 · Risograph</div><h3>A print that moves</h3><p>LAUNCH in fluorescent pink and blue ink, with fresh grain every frame.</p></div></article>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <img src="media/wf-logo.png" alt="Website Formula">
+    <div>
+      <p class="tagline">Beautiful websites with a clear message.</p>
+      <p>Made by Adam Willingham · <a href="https://websiteformula.co" target="_blank" rel="noopener">websiteformula.co</a></p>
+      <p>Method: RISE by Jack Roberts, from the AI Automations with Jack community.</p>
+      <p>Made with Claude Code, Claude Design, Higgsfield, ElevenLabs and Firecrawl.</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+// Every loop plays by itself while it is on screen and pauses when it scrolls away (saves data and battery).
+// Videos load only as they come near the screen.
+(() => {
+  const vids = [...document.querySelectorAll('video')];
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const load = v => { if (v.dataset.src && !v.getAttribute('src')) v.src = v.dataset.src; };
+  const play = v => { const p = v.play(); if (p && p.catch) p.catch(() => {}); };
+  if (!('IntersectionObserver' in window)) { vids.forEach(v => { load(v); if (!reduce) play(v); }); }
+  else {
+    const near = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { load(e.target); near.unobserve(e.target); } }), { rootMargin: '600px 0px' });
+    const seen = new IntersectionObserver(es => es.forEach(e => {
+      const v = e.target;
+      if (e.isIntersecting) { load(v); if (!reduce || !v.muted) play(v); } else if (!v.paused) { v.pause(); }
+    }), { threshold: 0.2 });
+    vids.forEach(v => { near.observe(v); seen.observe(v); });
+  }
+
+  // A sound button restarts its video from the top with sound; tap again to go back to the silent loop.
+  document.querySelectorAll('.sound').forEach(btn => {
+    const v = document.getElementById(btn.dataset.for), label = btn.querySelector('span');
+    const quiet = () => { v.muted = true; v.loop = true; label.textContent = 'Watch with sound'; btn.setAttribute('aria-pressed', 'false'); };
+    btn.addEventListener('click', () => {
+      load(v);
+      if (v.muted) {
+        document.querySelectorAll('video').forEach(o => { if (o !== v && !o.muted) { o.muted = true; o.loop = true; } });
+        document.querySelectorAll('.sound').forEach(b => { if (b !== btn) { b.querySelector('span').textContent = 'Watch with sound'; b.setAttribute('aria-pressed', 'false'); } });
+        v.muted = false; v.loop = false; v.currentTime = 0; play(v); label.textContent = 'Sound off'; btn.setAttribute('aria-pressed', 'true');
+      } else { quiet(); }
+    });
+    v.addEventListener('ended', () => { quiet(); play(v); });
+  });
+})();
+</script>
+</body>
+</html>
